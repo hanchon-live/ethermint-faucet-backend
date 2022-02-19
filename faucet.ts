@@ -3,16 +3,15 @@ import { SigningStargateClient, coins, parseCoins } from "@cosmjs/stargate";
 import { stringToPath } from "@cosmjs/crypto";
 import parse from "parse-duration";
 
-const NETWORK_RPC_NODE = process.env.NETWORK_RPC_NODE;
-const FAUCET_MNEMONIC = process.env.FAUCET_MNEMONIC;
+const NETWORK_RPC_NODE = process.env.NETWORK_RPC_NODE || "http://localhost:26657";
+const FAUCET_MNEMONIC = process.env.FAUCET_MNEMONIC ;
 const FAUCET_WAIT_PERIOD = process.env.FAUCET_WAIT_PERIOD || "24h";
-const FAUCET_DISTRIBUTION_AMOUNT =
-  process.env.FAUCET_DISTRIBUTION_AMOUNT || 1000000000;
-const FAUCET_DENOM = process.env.FAUCET_DENOM || "uakt";
-const FAUCET_FEES = process.env.FAUCET_FEES || 5000;
-const FAUCET_GAS = process.env.FAUCET_GAS || 180000;
-const FAUCET_MEMO = process.env.FAUCET_MEMO;
-const ADDRESS_PREFIX = process.env.ADDRESS_PREFIX || "ethm";
+const FAUCET_DISTRIBUTION_AMOUNT = process.env.FAUCET_DISTRIBUTION_AMOUNT || 100000000000000000;
+const FAUCET_DENOM = process.env.FAUCET_DENOM || "auptick";
+const FAUCET_FEES = process.env.FAUCET_FEES || 1000;
+const FAUCET_GAS = process.env.FAUCET_GAS || "200000";
+const FAUCET_MEMO = process.env.FAUCET_MEMO || "send amount";
+const ADDRESS_PREFIX = process.env.ADDRESS_PREFIX || "uptick";
 
 export const getWallet = () => {
   return DirectSecp256k1HdWallet.fromMnemonic(FAUCET_MNEMONIC as any, {
