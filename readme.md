@@ -1,5 +1,7 @@
 # Ethermint Faucet
 
+NOTE: this repo was archived, the new version is using my `evmosgrpc` lib and a simple FASTAPI app.
+
 Faucet server for [Ethermint](https://ethermint.dev/)
 
 ## How to use
